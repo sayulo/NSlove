@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marriage Proposal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .welcome-section {
+            text-align: center;
+            margin-top: 100px;
+        }
+
+        .form-section {
+            display: none;
+        }
+
+        .form {
+            background-color: #ffc0cb;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .form h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .form p {
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #ff4d4d;
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+            cursor: pointer; /* Add cursor:pointer to make it clear it's clickable */
+        }
+
+        .btn:hover {
+            background-color: #ff3333;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        /* Added styles for login container */
+        .login-container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        /* Added styles for login form */
+        .login-form {
+            margin-top: 20px;
+        }
+
+        /* Added styles for warning message */
+        #login-warning {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container login-container" id="login-container">
+        <h2>Step 1: Login</h2>
+        <form class="login-form" id="loginForm">
+            <input type="password" id="password" name="password" placeholder="Enter Password" required>
+            <input type="submit" value="Login">
+        </form>
+        <div id="login-warning"></div>
+    </div>
+
+    <div class="container welcome-section form-section" id="welcome-section">
+        <h2>Step 2: Welcome</h2>
+        <div class="welcome">
+            <h1>Hi my love, how are you?</h1>
+            <p>I made this website for you. Press the button below to see the main form.</p>
+            <audio controls autoplay>
+                <source src="snooz.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+            <a href="#" class="btn" onclick="showMainForm()">Enter</a>
+        </div>
+    </div>
+
+    <section id="main-form" class="container form-section">
+        <div class="form">
+            <h2>Step 3: Form One</h2>
+            <p>There is something so incredible about you...</p>
+            <p>...that I find myself falling in love with you every day. I may not have told you, but I want to tell you that you have given my life a purpose and a direction that was missing until you came into my life. The ardor I feel for you grows stronger with each passing day, my love.</p>
+            <p>It is difficult to imagine my life without you because you are the one who rules it.</p>
+            <button class="btn next-btn" onclick="showFinalForm()">Next</button>
+        </div>
+    </section>
+
+    <section id="final-form" class="container form-section">
+        <div class="form">
+            <h2>Step 4: Form Two</h2>
+            <p>My love, no matter what happens...</p>
+            <p>I will wait for you to be mine. I love you so much and you are not going anywhere, okay? So, I just want to say...</p>
+            <p>Will you marry me?</p>
+            <div class="buttons">
+                <button class="btn proposal-btn" onclick="celebrate()">I love you and I would love to marry you</button>
+                <button class="btn proposal-btn" onclick="celebrate()">I do, my love. I will marry you</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>Website created with love by Nahom for Sayat</p>
+        </div>
+    </footer>
+
+    <script>
+        function showMainForm() {
+            document.getElementById('welcome-section').style.display = 'none';
+            document.getElementById('main-form').style.display = 'block';
+        }
+
+        function showFinalForm() {
+            document.getElementById('main-form').style.display = 'none';
+            document.getElementById('final-form').style.display = 'block';
+        }
+
+        function celebrate() {
+            alert("It is your decision so you are not going anywhere, love.");
+        }
+
+        // Login form validation
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var password = document.getElementById('password').value;
+            if (password === 'sayat') {
+                // Password is correct, show the welcome section
+                document.getElementById('login-container').style.display = 'none'; // Hide the login container
+                document.getElementById('welcome-section').style.display = 'block'; // Show the welcome section
+            } else {
+                // Password is incorrect, show warning message
+                document.getElementById('login-warning').textContent = "You are not SAYAT so get out of here!";
+            }
+        });
+    </script>
+</body>
+</html>
